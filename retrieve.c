@@ -7,6 +7,10 @@
 
 #include <machbase_sqlcli.h>
 
+// Please configure your connection info.
+#define DB_HOST "127.0.0.1"
+#define DB_PORT (5656)
+
 #define DEFAULT_CHECK_COUNT 100
 #define ROTATE 1024
 #define TOTAL (ROTATE * 10)
@@ -70,7 +74,7 @@ int main(int argc, char** argv)
         break;
     }
     
-    if( openDBConn("127.0.0.1", "SYS", "MANAGER", 28000) != 0 )
+    if( openDBConn(DB_HOST, "SYS", "MANAGER", DB_PORT) != 0 )
     {
         printf("Open DB connection failed.\n");
         exit(-1);
